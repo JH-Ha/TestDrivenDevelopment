@@ -1,8 +1,13 @@
 package ch01;
 
-public abstract class Money {
+public class Money {
     protected int amount;
     protected String currency;
+
+    public Money(int amount, String currency){
+        this.amount = amount;
+        this.currency = currency;
+    }
 
     String currency(){
         return currency;
@@ -16,13 +21,14 @@ public abstract class Money {
         return new Franc(amount, "CHF");
     }
 
-    abstract Money times(int multiplier);
+    Money times(int multiplier){
+        return null;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Money dollar = (Money) o;
-        return amount == dollar.amount;
+        Money money = (Money) o;
+        return amount == money.amount && currency().equals(money.currency());
     }
 }

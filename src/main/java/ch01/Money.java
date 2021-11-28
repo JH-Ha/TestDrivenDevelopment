@@ -4,25 +4,25 @@ public class Money {
     protected int amount;
     protected String currency;
 
-    public Money(int amount, String currency){
+    public Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    String currency(){
+    String currency() {
         return currency;
     }
 
-    static Dollar dollar(int amount){
-        return new Dollar(amount, "USD");
+    static Money dollar(int amount) {
+        return new Money(amount, "USD");
     }
 
-    static Franc franc(int amount){
-        return new Franc(amount, "CHF");
+    static Money franc(int amount) {
+        return new Money(amount, "CHF");
     }
 
-    Money times(int multiplier){
-        return null;
+    Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
     }
 
     @Override
